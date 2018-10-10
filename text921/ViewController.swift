@@ -11,7 +11,10 @@ import UIKit
 class ViewController: UIViewController {
 
     
-   var re = 0//判断
+    var re = 0//判断
+    var number = 0
+    var add = 0
+    var result = ""
     @IBAction func num1(_ sender: Any) {
         if re == 1{
             Display.text = "1"
@@ -92,25 +95,52 @@ class ViewController: UIViewController {
     /*@IBAction func dot(_ sender: Any) {
             Display.text = Display.text! + "."
             judge = 1
-    }
+    }*/
     @IBAction func clear(_ sender: Any) {
         Display.text = ""
-    }*/
+    }
     @IBAction func add(_ sender: Any) {
+        if add == 1{
+            let a = Double(result)!
+            let b = Double(Display.text!)!
+            let c = a + b
+            result = String(c)
+            Display.text = ""
+            number = 1
+            re = 0
+        }
+        else{
         if Display.text == ""
         {
             Display.text = "0"
-            
         }
         else {
-            let x =
-                Double(Display.text!)!
-            
+            let x = Double(Display.text!)!
+            Display.text = String(x)
+            Display.text = ""
+            number = 2
+            re = 0
         }
-        
-        
     }
+}
     
+    @IBAction func equal(_ sender: Any) {
+        var d:Double
+        var c:Double
+        let x = Double(Display.text!)!
+        c = (Display.text! as NSString).doubleValue
+        if number == 1{
+            d = x + c
+        }else if number == 2{
+            d = x - c
+        }else if number == 3{
+            d = x * c
+        }else if number == 4{
+            d = x / (c)
+        }else {
+            d = 1000
+        }
+    }
     @IBOutlet weak var Display: UITextField!
     
     
