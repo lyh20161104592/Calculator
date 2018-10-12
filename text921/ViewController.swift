@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var number = 0
     var add = 0
     var result = ""
+    var judge = 0
     @IBAction func num1(_ sender: Any) {
         if re == 1{
             Display.text = "1"
@@ -112,34 +113,50 @@ class ViewController: UIViewController {
         else{
         if Display.text == ""
         {
-            Display.text = "0"
+            Display.text = ""
         }
         else {
+            add = 1
             let x = Double(Display.text!)!
-            Display.text = String(x)
+            result = String(x)
             Display.text = ""
-            number = 2
+            number = 1
             re = 0
         }
     }
 }
     
+    @IBAction func change(_ sender: Any) {
+        let count = Double(Display.text!)!
+        let count2 = -count
+        Display.text = String(count2)
+        re = 0
+    }
     @IBAction func equal(_ sender: Any) {
-        var d:Double
-        var c:Double
-        let x = Double(Display.text!)!
-        c = (Display.text! as NSString).doubleValue
+        let a = Double(result)!
+        let b = Double(Display.text!)!
         if number == 1{
-            d = x + c
+            let c = a + b
+            Display.text = String(c)
         }else if number == 2{
-            d = x - c
+            let c = a - b
+            Display.text = String(c)
         }else if number == 3{
-            d = x * c
+            let c = a * b
+            Display.text = String(c)
         }else if number == 4{
-            d = x / (c)
-        }else {
-            d = 1000
+            let c = a / (b)
+            Display.text = String(c)
         }
+      Display.text = String(c)
+        if judge == 1{
+            Display.text = String(format:"%f", c)
+        }else{
+            Display.text = String(format: "%.0f", c)
+        }
+        re = 1
+        judge = 0
+        add = 0
     }
     @IBOutlet weak var Display: UITextField!
     
