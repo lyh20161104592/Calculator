@@ -104,31 +104,33 @@ class ViewController: UIViewController {
     @IBAction func clear(_ sender: Any) {
         Display.text = ""
     }
+   
     @IBAction func plus(_ sender: Any) {
-        if add == 1{
-            let a = Double(result)!
-            let b = Double(Display.text!)!
-            let c = a + b
-            result = String(c)
-            Display.text = ""
-            number = 1
-            re = 0
+            if add == 1{
+                let a = Double(result)!
+                let b = Double(Display.text!)!
+                let c = a + b
+                result = String(c)
+                Display.text = ""
+                number = 1
+                re = 0
+            }
+            else{
+                if Display.text == ""
+                {
+                    Display.text = ""
+                }
+                else {
+                    add = 1
+                    let x = Double(Display.text!)!
+                    result = String(x)
+                    Display.text = ""
+                    number = 1
+                    re = 0
+                }
+            }
+            judge = 0
         }
-        else{
-        if Display.text == ""
-        {
-            Display.text = ""
-        }
-        else {
-            add = 1
-            let x = Double(Display.text!)!
-            result = String(x)
-            Display.text = ""
-            number = 1
-            re = 0
-        }
-    }
-}
     @IBAction func sub(_ sender: Any) {
         if add == 1{
             let a = Double(result)!
@@ -153,6 +155,7 @@ class ViewController: UIViewController {
                 re = 0
             }
         }
+        judge = 0
     }
     
     @IBAction func mul(_ sender: Any) {
@@ -179,7 +182,7 @@ class ViewController: UIViewController {
             re = 0
           }
         }
-        
+        judge = 0
     }
 
     @IBAction func div(_ sender: Any) {
@@ -206,6 +209,7 @@ class ViewController: UIViewController {
                 re = 0
             }
         }
+        judge = 0
     }
     
     @IBAction func change(_ sender: Any) {
@@ -215,9 +219,14 @@ class ViewController: UIViewController {
         re = 0
     }
     @IBAction func equal(_ sender: Any) {
+        if Display.text == ""{
+            Display.text = ""
+        }
+        else{
         let a = Double(result)!
         let b = Double(Display.text!)!
-        if number == 1{
+        
+         if number == 1{
             let c = a + b
             Display.text = String(c)
         }else if number == 2{
@@ -233,6 +242,7 @@ class ViewController: UIViewController {
         re = 0
         judge = 0
         add = 0
+        }
     }
     @IBOutlet weak var Display: UITextField!
     
