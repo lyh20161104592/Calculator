@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     @IBAction func num1(_ sender: Any) {
         if re == 1{
             Display.text = "1"
+            re = 0
         }else{
             Display.text = Display.text! + "1"
         }
@@ -27,6 +28,7 @@ class ViewController: UIViewController {
     @IBAction func num2(_ sender: Any) {
         if re == 1{
             Display.text = "2"
+            re = 0
         }else{
             Display.text = Display.text! + "2"
         }
@@ -34,6 +36,7 @@ class ViewController: UIViewController {
     @IBAction func num3(_ sender: Any) {
         if re == 1{
             Display.text = "3"
+            re = 0
         }else{
             Display.text = Display.text! + "3"
         }
@@ -41,6 +44,7 @@ class ViewController: UIViewController {
     @IBAction func num4(_ sender: Any) {
         if re == 1{
             Display.text = "4"
+            re = 0
         }else{
             Display.text = Display.text! + "4"
         }
@@ -49,6 +53,7 @@ class ViewController: UIViewController {
     @IBAction func num5(_ sender: Any) {
         if re == 1{
             Display.text = "5"
+            re = 0
         }else{
             Display.text = Display.text! + "5"
         }
@@ -56,6 +61,7 @@ class ViewController: UIViewController {
     @IBAction func num6(_ sender: Any) {
         if re == 1{
             Display.text = "6"
+            re = 0
         }else{
             Display.text = Display.text! + "6"
         }
@@ -64,6 +70,7 @@ class ViewController: UIViewController {
     @IBAction func num7(_ sender: Any) {
         if re == 1{
             Display.text = "7"
+            re = 0
         }else{
             Display.text = Display.text! + "7"
         }
@@ -72,6 +79,7 @@ class ViewController: UIViewController {
     @IBAction func num8(_ sender: Any) {
         if re == 1{
             Display.text = "8"
+            re = 0
         }else{
             Display.text = Display.text! + "8"
         }
@@ -80,6 +88,7 @@ class ViewController: UIViewController {
     @IBAction func num9(_ sender: Any) {
         if re == 1{
             Display.text = "9"
+            re = 0
         }else{
             Display.text = Display.text! + "9"
         }
@@ -88,6 +97,7 @@ class ViewController: UIViewController {
     @IBAction func num0(_ sender: Any) {
         if re == 1{
             Display.text = "0"
+            re = 0
         }else{
             Display.text = Display.text! + "0"
         }
@@ -218,6 +228,7 @@ class ViewController: UIViewController {
         Display.text = String(count2)
         re = 0
     }
+    
     @IBAction func equal(_ sender: Any) {
         if Display.text == ""{
             Display.text = ""
@@ -228,7 +239,7 @@ class ViewController: UIViewController {
         
          if number == 1{
             let c = a + b
-            Display.text = String(c)
+            Display.text = String(format: "%.1f", c)
         }else if number == 2{
             let c = a - b
             Display.text = String(c)
@@ -239,7 +250,7 @@ class ViewController: UIViewController {
             let c = a / (b)
             Display.text = String(c)
         }
-        re = 0
+        re = 1
         judge = 0
         add = 0
         }
