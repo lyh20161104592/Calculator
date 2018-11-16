@@ -105,17 +105,32 @@ class ViewController: UIViewController {
     }
     
     @IBAction func dot(_ sender: Any) {
-        if judge == 1{
-            Display.text = Display.text
-        }else{
-            Display.text = Display.text! + "."
+        if re == 1{
+            Display.text = "0."
+            re = 0
             judge = 1
         }
+        else{
+            if judge == 1{
+                Display.text = Display.text
+                         }
+            else {
+                if Display.text == ""{
+                    Display.text = "0."
+                    judge = 1
+                                     }
+                else{
+                    Display.text = Display.text! + "."
+                    judge = 1
+                    }
+            }
+           }
     }
     @IBAction func clear(_ sender: Any) {
         Display.text = ""
         result = ""
         re = 0
+        judge = 0
     }
    
     @IBAction func plus(_ sender: Any) {
@@ -268,7 +283,7 @@ class ViewController: UIViewController {
             }
         Display.text = lyh
         re = 1
-        judge = 0
+        judge = 1
         add = 0
         }
     }
