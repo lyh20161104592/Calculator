@@ -126,6 +126,16 @@ class ViewController: UIViewController {
             }
            }
     }
+    
+    @IBAction func Backspace(_ sender: Any) {
+        if Display.text==""{
+            Display.text=""
+        }
+        else  {
+           Display.text?.removeLast()
+        }
+        
+    }
     @IBAction func clear(_ sender: Any) {
         Display.text = ""
         result = ""
